@@ -1,0 +1,5 @@
+URL_MENU_ADD = '/admin/menu_app/menu/add/'
+URL_ITEM_ADD = '/admin/menu_app/item/add/'
+URL_ADMIN = '/admin/'
+REDIRECT_ADMIN = '/admin/login/?next=%2Fadmin%2F'
+URL_HOME = '/menu/'

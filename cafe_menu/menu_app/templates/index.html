@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Index Page {% endblock %}
+
+{% load draw_menu %}
+{% block content %}
+
+{% draw_menu 'Главное меню' %}
+
+
+{% endblock %}
+
+{% comment %} {% extends "base.html" %}
+{% load menu_tags %}
+{% block title %}
+  Cafe-restaurent
+{% endblock %}
+{% block content %}
+<h1 class="pb-2 mb-0">Меню кафе-ресторана</h1>
+<ul>
+    {% draw_menu 'main_menu' as menu %}
+    {% for item in menu %}
+        <li class="{% if item.is_active %}active{% endif %}">
+            <a href="{{ item.item.url }}">{{ item.item.title }}</a>
+            {% if item.is_expanded %}
+                <ul>
+                    {% for child in item.children %}
+                        <li class="{% if child.is_active %}active{% endif %}">
+                            <a href="{{ child.item.url }}">{{ child.item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul> {% endcomment %}
+
+{% comment %} <ul>
+    {% draw_menu 'Винная карта' as menu %}
+    {% for item in menu %}
+        <li>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if item.children.all %}
+                <ul>
+                    {% for child in item.children.all %}
+                        <li>
+                            <a href="{{ child.url }}">{{ child.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul> 
+{% endblock %}
+{% endcomment %}
+
+
