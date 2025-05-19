@@ -1,37 +1,28 @@
-# from django.contrib import admin
-# from .models import MenuItem
-
-# class MenuItemInline(admin.TabularInline):
-#     model = MenuItem
-#     extra = 1
-
-# # @admin.register(Menu)
-# # class MenuAdmin(admin.ModelAdmin):
-# #     inlines = [MenuItemInline]
-
-# @admin.register(MenuItem)
-# class MenuItemAdmin(admin.ModelAdmin):
-#     inlines = [MenuItemInline]
-#     list_display = ('title', 'url', 'parent')
-
-
 from django.contrib import admin
 
-from menu_app.models import Item, Menu
+from menu_app.models import Menu, MenuItem
 
 
-@admin.register(Item)
+@admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display = ('title', 'parent')
-    list_filter = ('menu',)
+    list_display = ("title", "menu", "parent")
+    list_filter = ("menu", "parent")
+    search_fields = ("title",)
     fieldsets = (
-        ('Add new item', {
-            'description': "Родительским элементом должно быть меню или элемент",
-            'fields': (('menu', 'parent'), 'title', 'slug')
-            }),
-            )
+        (
+            "Добавить новый элемент",
+            {
+                "description": "Родительским элементом "
+                "должно быть меню или элемент",
+                "fields": (("menu", "parent"), "title", "url", "named_url"),
+            },
+        ),
+    )
+    # Автоматическое заполнение поля URL
+    prepopulated_fields = {"named_url": ("title",)}
 
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug')
+    list_display = ("name",)
+    search_fields = ("name",)

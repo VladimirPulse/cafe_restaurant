@@ -1,12 +1,10 @@
 <ul>
     {% for item in items %}
         <li>
-            <a href="?{{ other_querystring }}&{{ menu }}={{ item.id }}">{{ item.title }}</a>
+            <a href="{% url 'menu_item' item.named_url %}">{{ item.title }}</a>
         </li>
-        
         {% if item.child_items %}
             {% include 'includes/nested_menu.html' with items=item.child_items %}
         {% endif %}
-
     {% endfor %}
 </ul>

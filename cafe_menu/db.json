@@ -1,98 +1,159 @@
 [
     {
-        "model": "menu_app.Menu",
+        "model": "menu_app.menu",
         "pk": 1,
         "fields": {
-            "title": "Главное меню",
-            "slug": "General"
+            "name": "Основное"
         }
     },
     {
-        "model": "menu_app.Menu",
+        "model": "menu_app.menuitem",
+        "pk": 1,
+        "fields": {
+            "title": "Детское меню",
+            "parent": null,
+            "named_url": "children_menu",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
         "pk": 2,
         "fields": {
-            "title": "Торжественное меню",
-            "slug": "Triumf"
+            "title": "Повседневное меню",
+            "parent": null,
+            "named_url": "daily_menu",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 3,
+        "fields": {
+            "title": "Банкетное меню",
+            "parent": null,
+            "named_url": "banquet",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 4,
+        "fields": {
+            "title": "Холодные закуски",
+            "parent": 2,
+            "named_url": "cold_snacks",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 5,
+        "fields": {
+            "title": "Горячие блюда",
+            "parent": 2,
+            "named_url": "hot_dishes",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 6,
+        "fields": {
+            "title": "Выездное меню",
+            "parent": 3,
+            "named_url": "exit_menu",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 7,
+        "fields": {
+            "title": "Винная карта",
+            "parent": 3,
+            "named_url": "wine",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 8,
+        "fields": {
+            "title": "Мясная нарезка",
+            "parent": 4,
+            "named_url": "meat_slicing",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 9,
+        "fields": {
+            "title": "Овощная нарезка",
+            "parent": 4,
+            "named_url": "vegetable_slicing",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 10,
+        "fields": {
+            "title": "Шашлык",
+            "parent": 5,
+            "named_url": "barbecue",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 11,
+        "fields": {
+            "title": "Курица на гриле",
+            "parent": 5,
+            "named_url": "grilled_chicken",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 12,
+        "fields": {
+            "title": "Ланч меню",
+            "parent": 6,
+            "named_url": "lunch_menu",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 13,
+        "fields": {
+            "title": "Меню туриста",
+            "parent": 6,
+            "named_url": "tourist_menu",
+            "menu": 1
+        }
+    },
+    {
+        "model": "menu_app.menuitem",
+        "pk": 14,
+        "fields": {
+            "title": "Красное вино",
+            "parent": 7,
+            "named_url": "wine_red",
+            "menu": 1
         }
     },
 
     {
-        "model": "menu_app.Item",
-        "pk": 1,
-        "fields": {
-            "title": "Винная карта",
-            "parent": null,
-            "slug": "/wine/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 2,
-        "fields": {
-            "title": "Красное вино",
-            "parent": 1,
-            "slug": "/wine/red/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 3,
+        "model": "menu_app.menuitem",
+        "pk": 15,
         "fields": {
             "title": "Белое вино",
-            "parent": 1,
-            "slug": "/wine/white/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 4,
-        "fields": {
-            "title": "Банкетное меню",
-            "parent": null,
-            "slug": "/banquet/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 5,
-        "fields": {
-            "title": "Холодные закуски",
-            "parent": 4,
-            "slug": "/banquet/cold/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 6,
-        "fields": {
-            "title": "Горячие блюда",
-            "parent": 4,
-            "slug": "/banquet/hot/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 7,
-        "fields": {
-            "title": "Овощная нарезка",
-            "parent": 5,
-            "slug": "/banquet/cold/vegetable/",
-            "menu": 1
-        }
-    },
-    {
-        "model": "menu_app.Item",
-        "pk": 8,
-        "fields": {
-            "title": "Мясная нарезка",
-            "parent": 5,
-            "slug": "/banquet/cold/meat/",
+            "parent": 7,
+            "named_url": "wine_white",
             "menu": 1
         }
     }
